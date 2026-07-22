@@ -41,7 +41,6 @@ const programs = [
       "Earned member giveaway levels",
     ],
     fit: "For established groups ready to represent EVP in their community.",
-    featured: true,
   },
 ];
 
@@ -91,9 +90,12 @@ export default function Home() {
             <a className="text-link" href="#programs">Explore the program</a>
           </div>
         </div>
-        <div className="hero-stamp" aria-hidden="true">
-          <strong>EVP</strong>
-          <span>Group<br />Partner</span>
+        <div className="hero-panel" aria-label="Program highlights">
+          <p>Built around your group</p>
+          <div><span>01</span><strong>Member benefits</strong></div>
+          <div><span>02</span><strong>Group support</strong></div>
+          <div><span>03</span><strong>Brand partnership</strong></div>
+          <small>UTV groups now · Snowmobile groups coming later</small>
         </div>
       </section>
 
@@ -110,14 +112,13 @@ export default function Home() {
             <h2>Choose what moves<br />your group forward.</h2>
           </div>
           <p>
-            From straightforward member value to a full EVP partnership, each option is designed to be easy to understand and meaningful to your group.
+            From member value to organizational support and brand collaboration, each option is designed to serve a different group priority.
           </p>
         </div>
 
         <div className="program-grid">
           {programs.map((program) => (
-            <article className={`program-card${program.featured ? " featured" : ""}`} key={program.name}>
-              {program.featured && <div className="featured-label">Premier Partnership</div>}
+            <article className="program-card" key={program.name}>
               <div className="program-number">{program.number}</div>
               <p className="card-eyebrow">{program.eyebrow}</p>
               <h3>{program.name}</h3>
@@ -200,14 +201,20 @@ export default function Home() {
               </div>
               <label>Riding group name<input required name="group_name" placeholder="Your group’s name" /></label>
               <div className="field-row">
+                <label>Your role
+                  <select required name="group_role" defaultValue="">
+                    <option value="" disabled>Select your role</option>
+                    <option>Founder or Owner</option><option>President or Chair</option><option>Board Member</option><option>Event Organizer</option><option>Group Administrator</option><option>Member</option><option>Other</option>
+                  </select>
+                </label>
                 <label>Approximate paying members
                   <select required name="member_count" defaultValue="">
                     <option value="" disabled>Select range</option>
                     <option>Under 25</option><option>25–49</option><option>50–99</option><option>100–249</option><option>250+</option>
                   </select>
                 </label>
-                <label>Primary location<input required name="location" placeholder="City, State" /></label>
               </div>
+              <label>Primary location<input required name="location" placeholder="City, State" /></label>
               <label>Website or social page <small>(optional)</small><input name="group_url" type="url" placeholder="https://" /></label>
               <label>What interests your group most?
                 <select required name="program_interest" defaultValue="">
