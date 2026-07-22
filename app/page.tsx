@@ -81,6 +81,7 @@ export default function Home() {
           <a href="#programs">Program Options</a>
           <a href="#benefits">Benefits</a>
           <a href="#how-it-works">How It Works</a>
+          <a href="/application">Application</a>
         </nav>
         <a className="button button-small" href="#interest-form">Start a Conversation</a>
       </header>
