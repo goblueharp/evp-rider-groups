@@ -10,9 +10,9 @@ const programs = [
     description:
       "Give verified, dues-paying members access to exclusive pricing on eligible EVP performance products through their individual online accounts.",
     bullets: [
-      "Account-based member pricing",
-      "Annual group enrollment",
-      "Exclusive product opportunities",
+      "Exclusive member discounts",
+      "Early access to new EVP products",
+      "Product and fitment guidance",
     ],
     image: "/images/product-exhaust.jpg",
     imageAlt: "EVP performance exhaust installed on a UTV",
@@ -25,9 +25,9 @@ const programs = [
     description:
       "Turn qualifying member purchases into ongoing support for events, trail initiatives, equipment and the work that keeps your group moving.",
     bullets: [
-      "Purchase-based group rewards",
-      "Flexible funding options",
-      "Clear scheduled reporting",
+      "Cash back on qualifying member EVP purchases",
+      "Funds paid directly to the riding group",
+      "Support for events, trails and operations",
     ],
     image: "/images/group-team-4.jpg",
     imageAlt: "EVP team and riders gathered with a UTV at a dune event",
@@ -40,9 +40,9 @@ const programs = [
     description:
       "Build an official performance partnership with annual support tailored to your membership, event calendar and community reach.",
     bullets: [
-      "Co-branded member merchandise",
+      "Co-branded member merchandise and swag",
       "Local or remote event support",
-      "Earned member giveaway levels",
+      "EVP product giveaways for members",
     ],
     image: "/images/our-story.jpg",
     imageAlt: "Evolution Powersports team member connecting with riders at an event",
