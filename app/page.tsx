@@ -81,7 +81,7 @@ export default function Home() {
           <a href="#programs">Program Options</a>
           <a href="#benefits">Benefits</a>
           <a href="#how-it-works">How It Works</a>
-          <a href="/application">Application</a>
+          <a href="/application">Application + Roster</a>
         </nav>
         <a className="button button-small" href="#interest-form">Start a Conversation</a>
       </header>
@@ -204,6 +204,10 @@ export default function Home() {
           ) : (
             <form onSubmit={submitInterest}>
               <div className="form-heading"><span>Partnership Interest Form</span><small>All fields required unless noted</small></div>
+              <div className="application-preview-callout">
+                <div><strong>Reviewing the complete application?</strong><p>See the downloadable member roster template and file-upload mockup.</p></div>
+                <a href="/application">Open Application + Roster <span>→</span></a>
+              </div>
               <div className="field-row">
                 <label>First name<input required name="firstname" autoComplete="given-name" placeholder="First name" /></label>
                 <label>Last name<input required name="lastname" autoComplete="family-name" placeholder="Last name" /></label>

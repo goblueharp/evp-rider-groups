@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 const stepLabels = ["Group Contact", "Partnership Fit", "Member Roster"];
 
 export default function ApplicationPage() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [submitted, setSubmitted] = useState(false);
   const [rosterFileName, setRosterFileName] = useState("");
 
@@ -62,7 +62,7 @@ export default function ApplicationPage() {
           ) : (
             <>
               <div className="application-form-heading">
-                <div><span>Formal Partnership Application</span><small>Internal preview · validation disabled</small></div>
+                <div><span>Formal Partnership Application</span><small>Internal preview opens to roster tools · validation disabled</small></div>
                 <em>Step {step} of 3</em>
               </div>
 
