@@ -86,6 +86,9 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
+        <div className="hero-media" aria-hidden="true">
+          <img src="/images/hero-group-action.jpg" alt="" />
+        </div>
         <div className="hero-content">
           <p className="kicker">EVP Riding Group Partnership Program</p>
           <h1>More power for<br /><span>your community.</span></h1>
@@ -97,7 +100,7 @@ export default function Home() {
             <a className="text-link" href="#programs">Explore the program</a>
           </div>
         </div>
-        <p className="hero-credit">EVP-built Can-Am Defender</p>
+        <p className="hero-credit">EVP UTV in the dunes</p>
       </section>
 
       <section className="proof-strip" aria-label="Program highlights">
