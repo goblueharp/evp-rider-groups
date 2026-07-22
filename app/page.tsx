@@ -135,6 +135,13 @@ export default function Home() {
             </article>
           ))}
         </div>
+        <div className="program-cta">
+          <div>
+            <h3>Not sure which option fits your group?</h3>
+            <p>Tell us about your riders, goals and events—we’ll help identify the best partnership path.</p>
+          </div>
+          <a className="button" href="#interest-form">Find Your Group’s Fit <span>→</span></a>
+        </div>
         <p className="detail-note">Program specifics are customized after EVP learns more about your group, membership and annual activities.</p>
       </section>
 
@@ -221,15 +228,16 @@ export default function Home() {
               </div>
               <label>Primary location<input required name="location" placeholder="City, State" /></label>
               <label>Website or social page <small>(optional)</small><input name="group_url" type="url" placeholder="https://" /></label>
-              <label>What interests your group most?
-                <select required name="program_interest" defaultValue="">
-                  <option value="" disabled>Select an option</option>
-                  <option>Member Preferred Pricing</option>
-                  <option>Group Growth Fund</option>
-                  <option>Official EVP Group Partnership</option>
-                  <option>Not sure—help us choose</option>
-                </select>
-              </label>
+              <fieldset className="program-interest">
+                <legend>Which partnership option interests you most?</legend>
+                <p>Your selection isn’t a commitment; it simply helps us start the conversation.</p>
+                <div className="radio-grid">
+                  <label className="radio-option"><input required type="radio" name="program_interest" value="Member Preferred Pricing" /><span>Member Preferred Pricing</span></label>
+                  <label className="radio-option"><input type="radio" name="program_interest" value="Group Growth Fund" /><span>Group Growth Fund</span></label>
+                  <label className="radio-option"><input type="radio" name="program_interest" value="Official EVP Group Partner" /><span>Official EVP Group Partner</span></label>
+                  <label className="radio-option"><input type="radio" name="program_interest" value="Not sure—help us choose" /><span>Not sure—help us choose</span></label>
+                </div>
+              </fieldset>
               <label className="consent"><input required type="checkbox" name="consent" /><span>I agree that EVP may contact me about the Riding Group Partnership Program.</span></label>
               <button className="button submit-button" type="submit">Start the Conversation <span>→</span></button>
               <p className="privacy-note">Your information will only be used to evaluate and communicate about this program.</p>
