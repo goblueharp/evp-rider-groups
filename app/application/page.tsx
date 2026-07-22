@@ -7,6 +7,7 @@ const stepLabels = ["Group Contact", "Partnership Fit", "Member Roster"];
 export default function ApplicationPage() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [rosterFileName, setRosterFileName] = useState("");
 
   function continueApplication() {
     setStep((current) => Math.min(3, current + 1));
@@ -69,9 +70,15 @@ export default function ApplicationPage() {
                 {stepLabels.map((label, index) => {
                   const number = index + 1;
                   return (
-                    <div className={number === step ? "active" : number < step ? "complete" : ""} key={label}>
+                    <button
+                      className={number === step ? "active" : number < step ? "complete" : ""}
+                      key={label}
+                      type="button"
+                      onClick={() => setStep(number)}
+                      aria-label={`Go to step ${number}: ${label}`}
+                    >
                       <span>{number < step ? "✓" : `0${number}`}</span><p>{label}</p>
-                    </div>
+                    </button>
                   );
                 })}
               </div>
@@ -150,15 +157,25 @@ export default function ApplicationPage() {
                   <section className="application-step" aria-labelledby="step-three-title">
                     <p className="step-eyebrow">Step 03</p>
                     <h2 id="step-three-title">Upload your member roster</h2>
-                    <p className="step-intro">Use the EVP template so member eligibility, vehicle fitment and optional swag fulfillment information can be reviewed consistently.</p>
+                    <p className="step-intro">Download the sample roster, add member information and attach the completed file. For this internal preview, no file is required and nothing is transmitted.</p>
                     <div className="template-download-card">
-                      <div className="template-file-icon">XLSX</div>
-                      <div><strong>EVP Member Roster Template</strong><p>Includes required member contact fields plus optional address and vehicle fitment columns.</p></div>
-                      <a href="/EVP-Riding-Group-Member-Roster-Template.xlsx" download>Download template ↓</a>
+                      <div className="template-file-icon">01</div>
+                      <div><strong>Download the EVP Member Roster Template</strong><p>Sample XLSX with member contact, address and vehicle fitment columns.</p></div>
+                      <a className="template-download-button" href="/EVP-Riding-Group-Member-Roster-Template.xlsx" download>Download XLSX ↓</a>
                     </div>
-                    <label className="upload-field">Completed member roster
-                      <span>Upload the completed EVP template in XLSX, XLS or CSV format.</span>
-                      <input type="file" name="member_roster" accept=".xlsx,.xls,.csv" />
+                    <label className="upload-field" htmlFor="member-roster">
+                      <b className="upload-step-number">02</b>
+                      <strong>Attach completed member roster</strong>
+                      <span>Choose an XLSX, XLS or CSV file to preview the upload experience.</span>
+                      <span className="upload-button">{rosterFileName ? "Change file" : "Choose roster file"}</span>
+                      <em>{rosterFileName || "No file selected"}</em>
+                      <input
+                        id="member-roster"
+                        type="file"
+                        name="member_roster"
+                        accept=".xlsx,.xls,.csv"
+                        onChange={(event) => setRosterFileName(event.target.files?.[0]?.name ?? "")}
+                      />
                     </label>
                     <div className="roster-fields">
                       <span>Roster fields included</span>
