@@ -106,7 +106,7 @@ export default function Home() {
       <section className="proof-strip" aria-label="Program highlights">
         <p><strong>Built for real groups.</strong> Flexible support based on how your community rides, grows and shows up.</p>
         <span className="proof-divider" />
-        <p><strong>No one-size-fits-all.</strong> We’ll help identify the right path for your members and leadership.</p>
+        <p><strong>Race-day power. Trail-day confidence.</strong> Whether your group is chasing podiums or a smoother, more capable day on the trail, EVP helps every rider get more from their machine.</p>
       </section>
 
       <section className="section programs-section" id="programs">
