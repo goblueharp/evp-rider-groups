@@ -17,23 +17,6 @@ body { margin: 0; background: var(--warm-white); color: var(--black); font-famil
 a { color: inherit; }
 button, input, select { font: inherit; }
 
-.review-gate { min-height: 100vh; display: grid; grid-template-columns: 1.08fr .92fr; background: #0b0b0b; color: #fff; }
-.review-gate-image { min-height: 100vh; position: relative; background: url('/images/hero-group-action.jpg') 46% 64%/cover; }
-.review-gate-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,7,7,.05) 55%, #0b0b0b 100%); }
-.review-gate-panel { min-height: 100vh; padding: clamp(38px, 7vw, 115px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-.review-gate-panel::before { content: ""; position: absolute; inset: 0; opacity: .08; pointer-events: none; background: repeating-linear-gradient(125deg, transparent 0 70px, rgba(255,255,255,.25) 71px 72px); }
-.review-gate-panel > * { position: relative; z-index: 1; }
-.review-gate-panel > img { width: min(320px, 72vw); margin-bottom: clamp(55px, 9vh, 95px); }
-.review-gate-panel h1 { max-width: 620px; margin: 0; font: italic 900 clamp(52px, 6vw, 88px)/.86 "Barlow Condensed", sans-serif; letter-spacing: -.025em; text-transform: uppercase; }
-.review-gate-panel > div > p:not(.kicker) { max-width: 570px; margin: 27px 0 0; color: #aaa; font-size: 16px; line-height: 1.7; }
-.review-gate-panel form { max-width: 500px; margin-top: 38px; }
-.review-gate-panel label { display: block; color: #ddd; font: 800 13px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.review-gate-panel input { height: 54px; margin: 8px 0 14px; border-color: #484848; background: #171717; color: #fff; }
-.review-gate-panel input:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.22); }
-.review-gate-panel form .button { width: 100%; }
-.review-gate-error { margin: -2px 0 14px; color: #ff706a; font-size: 12px; }
-.review-gate-panel > small { margin-top: 35px; color: #666; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
-
 .announcement {
   padding: 9px 24px;
   background: var(--red);
@@ -293,11 +276,6 @@ form .application-consent { margin-bottom: 12px; }
 .application-preview-callout a { flex: 0 0 auto; color: var(--red); font: 800 12px "Barlow Condensed", sans-serif; text-decoration: none; text-transform: uppercase; }
 
 @media (max-width: 1000px) {
-  .review-gate { grid-template-columns: 1fr; }
-  .review-gate-image { min-height: 32vh; }
-  .review-gate-image::after { background: linear-gradient(180deg, rgba(7,7,7,.05) 45%, #0b0b0b 100%); }
-  .review-gate-panel { min-height: 68vh; padding-top: 30px; }
-  .review-gate-panel > img { margin-bottom: 45px; }
   .site-header nav { display: none; }
   .brand img { width: 250px; }
   .hero-content { width: 62vw; }
@@ -314,11 +292,6 @@ form .application-consent { margin-bottom: 12px; }
 }
 
 @media (max-width: 680px) {
-  .review-gate-image { min-height: 27vh; }
-  .review-gate-panel { min-height: 73vh; padding: 32px 23px 42px; }
-  .review-gate-panel > img { width: 240px; margin-bottom: 38px; }
-  .review-gate-panel h1 { font-size: 54px; }
-  .review-gate-panel > div > p:not(.kicker) { font-size: 14px; }
   .announcement { font-size: 11px; }
   .site-header { height: 72px; padding-inline: 18px; }
   .brand img { width: 190px; }
