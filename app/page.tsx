@@ -46,7 +46,8 @@ const programs = [
 
 const benefits = [
   ["Preferred install labor", "Eligible EVP product installations at our Somerset facility."],
-  ["Product access", "Group-only promotions, education and performance opportunities."],
+  ["Early product access", "Be among the first to hear about select new EVP products and releases."],
+  ["Product education", "Group-only education, promotions and performance opportunities."],
   ["Events & experiences", "Qualifying facility visits, demos and on-site group support."],
   ["A real EVP connection", "A designated program contact who understands your group."],
 ];
@@ -135,10 +136,10 @@ export default function Home() {
 
       <section className="benefits-section" id="benefits">
         <div className="benefits-copy">
-          <p className="kicker">Every approved group gets more</p>
+          <p className="kicker">Included with every partnership option</p>
           <h2>Performance support that goes beyond a discount.</h2>
           <p>
-            Whichever path fits your group, EVP creates opportunities to connect members with better products, trusted expertise and memorable experiences.
+            No matter which option fits your group, every approved partner receives a shared foundation of EVP benefits, expertise and opportunities.
           </p>
           <a className="text-link light" href="#interest-form">Tell us about your group <span>→</span></a>
         </div>
