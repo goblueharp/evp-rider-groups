@@ -187,8 +187,8 @@ export default function Home() {
           <div className="contact-meta">
             <span>What happens next</span>
             <p>Personal outreach from EVP</p>
-            <p>No commitment to apply</p>
-            <p>Program details shared after review</p>
+            <p>Specific program details tailored to your group</p>
+            <p>Formal application sent for completion</p>
           </div>
         </div>
 

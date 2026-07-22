@@ -96,10 +96,10 @@ button, input, select { font: inherit; }
 .hero-actions { display: flex; align-items: center; gap: 28px; }
 .hero-credit { position: absolute; right: 24px; bottom: 20px; z-index: 1; margin: 0; color: rgba(255,255,255,.65); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
 
-.proof-strip { padding: 28px clamp(24px, 8vw, 126px); display: flex; align-items: center; justify-content: center; gap: 45px; background: #fff; border-bottom: 1px solid var(--line); }
-.proof-strip p { max-width: 520px; margin: 0; color: #666; font-size: 14px; line-height: 1.65; }
-.proof-strip strong { color: var(--black); }
-.proof-divider { width: 1px; height: 38px; background: var(--line); }
+.proof-strip { padding: 32px clamp(24px, 8vw, 126px); display: flex; align-items: center; justify-content: center; gap: 55px; background: #202020; border-bottom: 1px solid #383838; }
+.proof-strip p { max-width: 570px; margin: 0; color: #b9b9b9; font-size: 16px; line-height: 1.6; }
+.proof-strip strong { display: block; margin-bottom: 3px; color: #fff; font: 800 18px "Barlow Condensed", sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.proof-divider { width: 1px; height: 55px; background: #494949; }
 
 .section { padding: 110px clamp(24px, 8vw, 126px); }
 .section-heading { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; gap: 70px; margin-bottom: 58px; }
@@ -155,8 +155,8 @@ button, input, select { font: inherit; }
 .interest-copy .kicker { color: #220706; }
 .interest-copy > p:not(.kicker) { margin: 25px 0 35px; max-width: 500px; line-height: 1.75; color: #ffe3e1; }
 .contact-meta { padding-top: 25px; border-top: 1px solid rgba(255,255,255,.35); }
-.contact-meta > span { display: block; margin-bottom: 13px; font: 800 13px "Barlow Condensed", sans-serif; letter-spacing: .13em; text-transform: uppercase; }
-.contact-meta p { margin: 9px 0; padding-left: 20px; position: relative; color: #fff; font-size: 14px; }
+.contact-meta > span { display: block; margin-bottom: 15px; font: 800 15px "Barlow Condensed", sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.contact-meta p { margin: 12px 0; padding-left: 23px; position: relative; color: #fff; font-size: 16px; line-height: 1.45; }
 .contact-meta p::before { content: "✓"; position: absolute; left: 0; color: #2a0907; font-weight: 800; }
 .form-card { position: relative; z-index: 1; min-height: 650px; padding: 40px; background: #fff; color: var(--black); box-shadow: 0 28px 60px rgba(62,0,0,.25); }
 .form-heading { margin-bottom: 28px; padding-bottom: 18px; display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); }
