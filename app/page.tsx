@@ -97,7 +97,7 @@ export default function Home() {
             <a className="text-link" href="#programs">Explore the program</a>
           </div>
         </div>
-        <p className="hero-credit">EVP at Pikes Peak · Photo: Larry Chen</p>
+        <p className="hero-credit">EVP-built Can-Am Defender</p>
       </section>
 
       <section className="proof-strip" aria-label="Program highlights">
