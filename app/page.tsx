@@ -228,7 +228,7 @@ export default function Home() {
                 </label>
               </div>
               <label>Primary location<input required name="location" placeholder="City, State" /></label>
-              <label>Website or social page <small>(optional)</small><input name="group_url" type="url" placeholder="https://" /></label>
+              <label>Website or social page <small>(optional)</small><input name="group_url" type="text" inputMode="url" autoCapitalize="none" autoCorrect="off" placeholder="www.yourgroup.com or social profile" /></label>
               <fieldset className="program-interest">
                 <legend>Which partnership option interests you most?</legend>
                 <p>Your selection isn’t a commitment; it simply helps us start the conversation.</p>

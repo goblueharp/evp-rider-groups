@@ -104,7 +104,7 @@ export default function ApplicationPage() {
                           <option>Founder or Owner</option><option>President or Chair</option><option>Board Member</option><option>Event Organizer</option><option>Group Administrator</option><option>Other</option>
                         </select>
                       </label>
-                      <label>Website or social page <small>(optional)</small><input name="group_url" type="url" placeholder="https://" /></label>
+                      <label>Website or social page <small>(optional)</small><input name="group_url" type="text" inputMode="url" autoCapitalize="none" autoCorrect="off" placeholder="www.yourgroup.com or social profile" /></label>
                     </div>
                   </section>
                 )}
