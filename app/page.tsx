@@ -14,6 +14,8 @@ const programs = [
       "Annual group enrollment",
       "Exclusive product opportunities",
     ],
+    image: "/images/product-exhaust.jpg",
+    imageAlt: "EVP performance exhaust installed on a UTV",
     fit: "For groups focused on a simple, high-value member benefit.",
   },
   {
@@ -27,6 +29,8 @@ const programs = [
       "Flexible funding options",
       "Clear scheduled reporting",
     ],
+    image: "/images/group-team-4.jpg",
+    imageAlt: "EVP team and riders gathered with a UTV at a dune event",
     fit: "For groups looking to build sustainable operating support.",
   },
   {
@@ -40,6 +44,8 @@ const programs = [
       "Local or remote event support",
       "Earned member giveaway levels",
     ],
+    image: "/images/our-story.jpg",
+    imageAlt: "Evolution Powersports team member connecting with riders at an event",
     fit: "For established groups ready to represent EVP in their community.",
   },
 ];
@@ -91,13 +97,7 @@ export default function Home() {
             <a className="text-link" href="#programs">Explore the program</a>
           </div>
         </div>
-        <div className="hero-panel" aria-label="Program highlights">
-          <p>Built around your group</p>
-          <div><span>01</span><strong>Member benefits</strong></div>
-          <div><span>02</span><strong>Group support</strong></div>
-          <div><span>03</span><strong>Brand partnership</strong></div>
-          <small>UTV groups now · Snowmobile groups coming later</small>
-        </div>
+        <p className="hero-credit">EVP at Pikes Peak · Photo: Larry Chen</p>
       </section>
 
       <section className="proof-strip" aria-label="Program highlights">
@@ -120,6 +120,7 @@ export default function Home() {
         <div className="program-grid">
           {programs.map((program) => (
             <article className="program-card" key={program.name}>
+              <div className="program-image"><img src={program.image} alt={program.imageAlt} /></div>
               <div className="program-number">{program.number}</div>
               <p className="card-eyebrow">{program.eyebrow}</p>
               <h3>{program.name}</h3>
