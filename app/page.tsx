@@ -82,7 +82,7 @@ export default function Home() {
           <a href="#benefits">Benefits</a>
           <a href="#how-it-works">How It Works</a>
           <a href="/application">Application + Roster</a>
-          <a href="/project-checklist">Project Checklist</a>
+          <a className="checklist-nav-button" href="/project-checklist">Project Checklist</a>
         </nav>
         <a className="button button-small" href="#interest-form">Start a Conversation</a>
       </header>
@@ -98,7 +98,7 @@ export default function Home() {
             Exclusive member benefits, group funding opportunities and official partnership support—built for the people who bring riders together.
           </p>
           <div className="hero-actions">
-            <a className="button" href="#interest-form">Become an EVP Partner <span>→</span></a>
+            <a className="button" href="#interest-form">Let&apos;s Ride! <span>→</span></a>
             <a className="text-link" href="#programs">Explore the program</a>
           </div>
         </div>
