@@ -275,6 +275,67 @@ form .application-consent { margin-bottom: 12px; }
 .application-preview-callout p { margin: 3px 0 0; color: #666; font-size: 11px; line-height: 1.45; }
 .application-preview-callout a { flex: 0 0 auto; color: var(--red); font: 800 12px "Barlow Condensed", sans-serif; text-decoration: none; text-transform: uppercase; }
 
+/* Internal project checklist */
+.checklist-page { min-height: 100vh; background: #efede9; }
+.checklist-header { position: static; }
+.checklist-header [aria-current="page"] { color: var(--red); }
+.checklist-save-status { color: #777; font: 700 11px "Barlow Condensed", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.application-header-links { display: flex; align-items: center; gap: 24px; }
+.application-header-links > a:first-child { color: #666; font: 700 12px "Barlow Condensed", sans-serif; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
+.checklist-hero { padding: clamp(55px, 7vw, 105px) clamp(24px, 6vw, 100px); display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 55px; background: #181818; color: #fff; }
+.checklist-hero > div:first-child { max-width: 850px; }
+.checklist-hero h1 { max-width: 850px; margin: 8px 0 24px; font: italic 900 clamp(54px, 7vw, 98px)/.86 "Barlow Condensed", sans-serif; letter-spacing: -.025em; text-transform: uppercase; }
+.checklist-hero > div:first-child > p:last-child { max-width: 680px; margin: 0; color: #bbb; font-size: 16px; line-height: 1.7; }
+.checklist-summary { display: grid; grid-template-columns: repeat(3, 108px); border: 1px solid #3a3a3a; }
+.checklist-summary div { padding: 22px 16px; display: flex; flex-direction: column; border-right: 1px solid #3a3a3a; text-align: center; }
+.checklist-summary div:last-child { border-right: 0; }
+.checklist-summary strong { color: var(--red); font: italic 900 40px "Barlow Condensed", sans-serif; }
+.checklist-summary span { color: #aaa; font: 700 11px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.checklist-workspace { padding: clamp(35px, 5vw, 75px) clamp(20px, 5vw, 80px) 90px; display: grid; grid-template-columns: minmax(285px, 380px) minmax(0, 1fr); align-items: start; gap: clamp(28px, 4vw, 65px); }
+.deliverable-form { padding: 30px; position: sticky; top: 20px; background: #fff; box-shadow: 0 16px 35px rgba(0,0,0,.08); }
+.deliverable-form-heading { margin-bottom: 22px; display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; }
+.deliverable-form-heading .kicker, .deliverables-toolbar .kicker { margin: 0 0 5px; }
+.deliverable-form h2, .deliverables-toolbar h2 { margin: 0; font-size: 36px; line-height: .95; }
+.deliverable-form label { display: block; margin-bottom: 16px; font-size: 12px; font-weight: 700; }
+.deliverable-form input, .deliverable-form textarea, .deliverable-form select { width: 100%; margin-top: 7px; padding: 13px; border: 1px solid #cecece; border-radius: 0; background: #fafafa; color: var(--black); outline: none; font: 14px/1.5 "Inter", sans-serif; }
+.deliverable-form textarea { resize: vertical; }
+.deliverable-form input:focus, .deliverable-form textarea:focus, .deliverable-form select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
+.deliverable-form .submit-button { width: 100%; margin-top: 3px; }
+.deliverable-form .text-button { border: 0; background: none; color: var(--red); cursor: pointer; font-size: 11px; font-weight: 700; text-decoration: underline; }
+.deliverables-panel { min-width: 0; }
+.deliverables-toolbar { margin-bottom: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; }
+.checklist-filters { display: flex; border: 1px solid #cbc8c2; background: #fff; }
+.checklist-filters button { padding: 11px 15px; border: 0; border-right: 1px solid #ddd9d2; background: #fff; color: #666; cursor: pointer; font: 800 12px "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+.checklist-filters button:last-child { border-right: 0; }
+.checklist-filters button.active { background: #202020; color: #fff; }
+.checklist-filters span { margin-left: 5px; color: var(--red); }
+.deliverables-list { display: grid; gap: 14px; }
+.deliverable-card { padding: 25px; display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 22px; border-top: 4px solid #252525; background: #fff; box-shadow: 0 12px 25px rgba(0,0,0,.06); }
+.deliverable-card.is-done { border-top-color: #9a9a9a; background: #f7f7f7; }
+.deliverable-rank { display: flex; flex-direction: column; align-items: center; }
+.deliverable-rank span { color: #999; font: 700 9px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.deliverable-rank strong { color: #c9c7c3; font: italic 900 38px "Barlow Condensed", sans-serif; }
+.deliverable-content { min-width: 0; }
+.deliverable-check { width: max-content; margin: 0 0 10px; display: flex; align-items: center; gap: 7px; color: var(--red); cursor: pointer; font: 800 11px "Barlow Condensed", sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.deliverable-check input { width: 17px; height: 17px; margin: 0; accent-color: var(--red); }
+.deliverable-content h3 { margin: 0; font-size: 25px; line-height: 1; }
+.deliverable-content > p { margin: 13px 0 18px; color: #666; font-size: 13px; line-height: 1.65; white-space: pre-wrap; }
+.deliverable-owner { display: flex; align-items: center; gap: 9px; }
+.deliverable-owner span { color: #999; font: 700 9px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.deliverable-owner strong { padding: 4px 8px; background: #eeeae4; font-size: 11px; }
+.deliverable-card.is-done h3 { color: #777; text-decoration: line-through; }
+.deliverable-card.is-done .deliverable-content > p { color: #999; }
+.deliverable-actions { display: flex; flex-direction: column; align-items: stretch; gap: 6px; }
+.deliverable-actions > button, .rank-actions button { padding: 7px 10px; border: 1px solid #d5d2cc; background: #fff; color: #555; cursor: pointer; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.deliverable-actions > button:hover, .rank-actions button:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
+.deliverable-actions .delete-action { color: #999; }
+.rank-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.rank-actions button { font-size: 14px; }
+.rank-actions button:disabled { opacity: .3; cursor: not-allowed; }
+.deliverables-empty { padding: 60px 30px; border: 1px dashed #bbb; text-align: center; }
+.deliverables-empty h3 { margin: 0 0 8px; font-size: 28px; }
+.deliverables-empty p { margin: 0; color: #777; }
+
 @media (max-width: 1000px) {
   .site-header nav { display: none; }
   .brand img { width: 250px; }
@@ -289,6 +350,10 @@ form .application-consent { margin-bottom: 12px; }
   footer > div { justify-content: center; }
   .application-layout { grid-template-columns: 1fr; }
   .application-intro { min-height: 540px; position: relative; top: 0; }
+  .checklist-hero { grid-template-columns: 1fr; }
+  .checklist-summary { width: min(100%, 420px); grid-template-columns: repeat(3, 1fr); }
+  .checklist-workspace { grid-template-columns: 1fr; }
+  .deliverable-form { position: static; }
 }
 
 @media (max-width: 680px) {
@@ -338,6 +403,23 @@ form .application-consent { margin-bottom: 12px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .form-heading { align-items: flex-start; flex-direction: column; }
   .application-preview-callout { align-items: flex-start; flex-direction: column; }
+  .checklist-save-status { display: none; }
+  .application-header-links > a:first-child { display: none; }
+  .checklist-hero { padding: 58px 22px; gap: 35px; }
+  .checklist-hero h1 { font-size: 57px; }
+  .checklist-summary { width: 100%; }
+  .checklist-summary div { padding: 16px 8px; }
+  .checklist-summary strong { font-size: 32px; }
+  .checklist-workspace { padding: 30px 16px 65px; }
+  .deliverable-form { padding: 24px 20px; }
+  .deliverables-toolbar { align-items: flex-start; flex-direction: column; }
+  .checklist-filters { width: 100%; }
+  .checklist-filters button { flex: 1; }
+  .deliverable-card { padding: 20px 17px; grid-template-columns: 42px minmax(0, 1fr); gap: 14px; }
+  .deliverable-rank strong { font-size: 30px; }
+  .deliverable-content h3 { font-size: 22px; }
+  .deliverable-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .rank-actions { display: grid; }
   footer > div { flex-direction: column; gap: 8px; }
 }
 

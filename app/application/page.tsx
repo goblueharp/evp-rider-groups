@@ -26,7 +26,7 @@ export default function ApplicationPage() {
           <img src="https://evopowersports.com/cdn/shop/files/Main_Nav_Logo-EVP_1_205x.svg?v=1701447538" alt="Evolution Powersports" />
         </a>
         <span className="application-header-label">Formal Application Preview</span>
-        <a className="text-link application-back" href="/">← Back to program</a>
+        <div className="application-header-links"><a href="/project-checklist">Project Checklist</a><a className="text-link application-back" href="/">← Back to program</a></div>
       </header>
 
       <section className="application-layout">
