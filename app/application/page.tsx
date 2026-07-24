@@ -2,15 +2,23 @@
 
 import { FormEvent, useState } from "react";
 
-const stepLabels = ["Group Contact", "Partnership Fit", "Member Roster"];
+const stepLabels = ["Primary Contact", "Group Profile", "Program Details", "Member Roster"];
+const applicationBenefits = [
+  "Discounted installation labor",
+  "Early product access",
+  "Event support",
+  "Discounted co-branded merchandise",
+  "Member product giveaways",
+  "Dedicated EVP contact",
+];
 
 export default function ApplicationPage() {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [rosterFileName, setRosterFileName] = useState("");
 
   function continueApplication() {
-    setStep((current) => Math.min(3, current + 1));
+    setStep((current) => Math.min(4, current + 1));
   }
 
   function submitApplication(event: FormEvent<HTMLFormElement>) {
@@ -34,19 +42,20 @@ export default function ApplicationPage() {
           <div>
             <p className="kicker">Ready to make it official?</p>
             <h1>Build something powerful together.</h1>
-            <p>Tell us how your group rides, what matters to your members and which type of EVP support can make the biggest impact.</p>
+            <p>Tell us how your group rides, what matters to your members and how the EVP partnership can make the biggest impact.</p>
           </div>
 
           <div className="application-expectations">
             <span>What you’ll need</span>
-            <p><b>01</b> Group and primary contact details</p>
-            <p><b>02</b> Membership, activities and partnership goals</p>
-            <p><b>03</b> A completed member roster</p>
+            <p><b>01</b> Primary contact details</p>
+            <p><b>02</b> Group profile, activities and goals</p>
+            <p><b>03</b> Program review and benefit interests</p>
+            <p><b>04</b> A completed member roster</p>
           </div>
 
           <div className="hubspot-ready-note">
             <strong>HubSpot-ready structure</strong>
-            <p>Uses native form steps, radio fields, file upload and consent fields for a straightforward rebuild.</p>
+            <p>Uses native form steps, checkbox fields, file upload and consent fields for a straightforward rebuild.</p>
           </div>
         </aside>
 
@@ -62,8 +71,8 @@ export default function ApplicationPage() {
           ) : (
             <>
               <div className="application-form-heading">
-                <div><span>Formal Partnership Application</span><small>Internal preview opens to roster tools · validation disabled</small></div>
-                <em>Step {step} of 3</em>
+                <div><span>Formal Partnership Application</span><small>Four-step HubSpot-ready mockup · validation disabled</small></div>
+                <em>Step {step} of 4</em>
               </div>
 
               <div className="application-progress" aria-label="Application progress">
@@ -84,10 +93,9 @@ export default function ApplicationPage() {
               </div>
 
               <form onSubmit={submitApplication}>
-                {step === 1 && (
-                  <section className="application-step" aria-labelledby="step-one-title">
+                  <section className="application-step" hidden={step !== 1} aria-labelledby="step-one-title">
                     <p className="step-eyebrow">Step 01</p>
-                    <h2 id="step-one-title">Primary contact and group</h2>
+                    <h2 id="step-one-title">Primary contact</h2>
                     <p className="step-intro">Start with the person EVP should contact throughout the application process.</p>
                     <div className="field-row">
                       <label>First name<input name="firstname" autoComplete="given-name" placeholder="First name" /></label>
@@ -97,33 +105,20 @@ export default function ApplicationPage() {
                       <label>Email address<input type="email" name="email" autoComplete="email" placeholder="you@ridinggroup.com" /></label>
                       <label>Phone number<input type="tel" name="phone" autoComplete="tel" placeholder="(555) 555-5555" /></label>
                     </div>
-                    <label>Riding group name<input name="group_name" placeholder="Official group name" /></label>
-                    <div className="field-row">
-                      <label>Your role
-                        <select name="group_role" defaultValue="">
-                          <option value="" disabled>Select your role</option>
-                          <option>Founder or Owner</option><option>President or Chair</option><option>Board Member</option><option>Event Organizer</option><option>Group Administrator</option><option>Other</option>
-                        </select>
-                      </label>
-                      <label>Website or social page <small>(optional)</small><input name="group_url" type="text" inputMode="url" autoCapitalize="none" autoCorrect="off" placeholder="www.yourgroup.com or social profile" /></label>
-                    </div>
+                    <label>Your role
+                      <select name="group_role" defaultValue="">
+                        <option value="" disabled>Select your role</option>
+                        <option>Founder or Owner</option><option>President or Chair</option><option>Board Member</option><option>Event Organizer</option><option>Group Administrator</option><option>Other</option>
+                      </select>
+                    </label>
                   </section>
-                )}
 
-                {step === 2 && (
-                  <section className="application-step" aria-labelledby="step-two-title">
+                  <section className="application-step" hidden={step !== 2} aria-labelledby="step-two-title">
                     <p className="step-eyebrow">Step 02</p>
-                    <h2 id="step-two-title">Your group and partnership fit</h2>
-                    <p className="step-intro">These details help EVP understand your community and prepare the right partnership structure.</p>
-                    <fieldset className="application-fieldset">
-                      <legend>Which partnership option interests you most?</legend>
-                      <div className="application-choice-grid">
-                        <label><input type="radio" name="application_program" value="Member Preferred Pricing" /><span><b>01</b> Member Preferred Pricing</span></label>
-                        <label><input type="radio" name="application_program" value="Group Growth Fund" /><span><b>02</b> Group Growth Fund</span></label>
-                        <label><input type="radio" name="application_program" value="Official EVP Group Partner" /><span><b>03</b> Official EVP Group Partner</span></label>
-                        <label><input type="radio" name="application_program" value="Not sure" /><span><b>?</b> Help us choose</span></label>
-                      </div>
-                    </fieldset>
+                    <h2 id="step-two-title">Group profile</h2>
+                    <p className="step-intro">Help EVP understand the size, location and riding activity of your community.</p>
+                    <label>Riding group name<input name="group_name" placeholder="Official group name" /></label>
+                    <label>Website or social page <small>(optional)</small><input name="group_url" type="text" inputMode="url" autoCapitalize="none" autoCorrect="off" placeholder="www.yourgroup.com or social profile" /></label>
                     <div className="field-row">
                       <label>Primary location<input name="location" placeholder="City, State" /></label>
                       <label>Paying members
@@ -151,12 +146,37 @@ export default function ApplicationPage() {
                       <textarea name="partnership_goals" rows={4} placeholder="Tell us about your members, goals, events and priorities." />
                     </label>
                   </section>
-                )}
 
-                {step === 3 && (
-                  <section className="application-step" aria-labelledby="step-three-title">
+                  <section className="application-step" hidden={step !== 3} aria-labelledby="step-three-title">
                     <p className="step-eyebrow">Step 03</p>
-                    <h2 id="step-three-title">Upload your member roster</h2>
+                    <h2 id="step-three-title">Review the program</h2>
+                    <p className="step-intro">Review the core program structure and identify the additional partnership benefits that matter most to your group.</p>
+                    <div className="program-terms-card">
+                      <div className="program-terms-heading">
+                        <div><p className="step-eyebrow">EVP Riding Group Partnership</p><h3>One program. Value for members and the group.</h3></div>
+                        <span>12-Month Program</span>
+                      </div>
+                      <div className="program-terms-grid">
+                        <div><strong>Up to 10%</strong><span>Member discount on eligible EVP products</span></div>
+                        <div><strong>2% Cash Back</strong><span>On qualifying group spend above $10,000</span></div>
+                        <div><strong>Paid Annually</strong><span>Program activity resets at annual renewal</span></div>
+                      </div>
+                      <p>Qualifying spend is calculated after discounts and returns, excludes taxes and shipping, and includes eligible EVP products and qualifying shop work installing EVP products. Cash back applies only to qualifying spend above the annual threshold.</p>
+                    </div>
+                    <fieldset className="application-fieldset">
+                      <legend>Which additional partnership benefits interest your group? <small>(select all that apply)</small></legend>
+                      <div className="application-choice-grid">
+                        {applicationBenefits.map((benefit, index) => (
+                          <label key={benefit}><input type="checkbox" name="application_benefit_interest" value={benefit} /><span><b>0{index + 1}</b> {benefit}</span></label>
+                        ))}
+                      </div>
+                    </fieldset>
+                    <label className="consent application-consent program-acknowledgement"><input type="checkbox" name="program_terms_acknowledged" /><span>I understand that eligibility, qualifying purchases, additional benefits and final program participation are subject to EVP approval and the complete program terms.</span></label>
+                  </section>
+
+                  <section className="application-step" hidden={step !== 4} aria-labelledby="step-four-title">
+                    <p className="step-eyebrow">Step 04</p>
+                    <h2 id="step-four-title">Upload your member roster</h2>
                     <p className="step-intro">Download the sample roster, add member information and attach the completed file. For this internal preview, no file is required and nothing is transmitted.</p>
                     <div className="template-download-card">
                       <div className="template-file-icon">01</div>
@@ -185,11 +205,10 @@ export default function ApplicationPage() {
                     <label className="consent application-consent"><input type="checkbox" name="authority_confirmed" /><span>I confirm that I am authorized to submit this application on behalf of the riding group.</span></label>
                     <label className="consent application-consent"><input type="checkbox" name="member_consent_confirmed" /><span>I confirm that members included in the roster have authorized the group to share their information with EVP for partnership administration, benefits, product fitment and optional swag fulfillment.</span></label>
                   </section>
-                )}
 
                 <div className="application-controls">
                   {step > 1 ? <button className="application-secondary" type="button" onClick={() => setStep((current) => current - 1)}>← Back</button> : <span />}
-                  {step < 3 ? <button className="button" type="button" onClick={continueApplication}>Continue <span>→</span></button> : <button className="button" type="submit">Submit Application <span>→</span></button>}
+                  {step < 4 ? <button className="button" type="button" onClick={continueApplication}>Continue <span>→</span></button> : <button className="button" type="submit">Submit Application <span>→</span></button>}
                 </div>
               </form>
             </>

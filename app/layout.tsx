@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const metadataBase = new URL(`${protocol}://${host}`);
   const title = "Riding Group Partnerships | Evolution Powersports";
-  const description = "Explore EVP member benefits, group rewards and official partnership opportunities for organized UTV riding groups.";
+  const description = "Explore the EVP Riding Group Partnership Program, with exclusive member pricing, annual group rewards and additional support for organized UTV communities.";
 
   return {
     metadataBase,

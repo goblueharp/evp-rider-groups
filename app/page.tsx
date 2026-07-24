@@ -2,60 +2,19 @@
 
 import { FormEvent, useState } from "react";
 
-const programs = [
-  {
-    number: "01",
-    name: "Member Preferred Pricing",
-    eyebrow: "Reward your riders",
-    description:
-      "Give verified, dues-paying members access to exclusive pricing on eligible EVP performance products through their individual online accounts.",
-    bullets: [
-      "Exclusive member discounts",
-      "Early access to new EVP products",
-      "Product and fitment guidance",
-    ],
-    image: "/images/product-exhaust.jpg",
-    imageAlt: "EVP performance exhaust installed on a UTV",
-    fit: "For groups focused on a simple, high-value member benefit.",
-  },
-  {
-    number: "02",
-    name: "Group Growth Fund",
-    eyebrow: "Fuel your next ride",
-    description:
-      "Turn qualifying member purchases into ongoing support for events, trail initiatives, equipment and the work that keeps your group moving.",
-    bullets: [
-      "Cash back on qualifying member EVP purchases",
-      "Funds paid directly to the riding group",
-      "Support for events, trails and operations",
-    ],
-    image: "/images/group-team-4.jpg",
-    imageAlt: "EVP team and riders gathered with a UTV at a dune event",
-    fit: "For groups looking to build sustainable operating support.",
-  },
-  {
-    number: "03",
-    name: "Official EVP Group Partner",
-    eyebrow: "Go further together",
-    description:
-      "Build an official performance partnership with annual support tailored to your membership, event calendar and community reach.",
-    bullets: [
-      "Co-branded member merchandise and swag",
-      "Local or remote event support",
-      "EVP product giveaways for members",
-    ],
-    image: "/images/our-story.jpg",
-    imageAlt: "Evolution Powersports team member connecting with riders at an event",
-    fit: "For established groups ready to represent EVP in their community.",
-  },
+const programPillars = [
+  ["Member savings", "Verified group members receive exclusive pricing on eligible EVP performance products through their individual online accounts."],
+  ["Annual group rewards", "Qualifying member purchases help unlock annual cash-back support for the riding group after its program threshold is reached."],
+  ["Products and shop work", "Eligible EVP products and qualifying installation work both contribute toward the group’s annual program activity."],
 ];
 
 const benefits = [
-  ["Preferred install labor", "Eligible EVP product installations at our Somerset facility."],
+  ["Discounted installation labor", "Preferred labor rates on eligible EVP product installations at our Somerset facility."],
   ["Early product access", "Be among the first to hear about select new EVP products and releases."],
-  ["Product education", "Group-only education, promotions and performance opportunities."],
-  ["Events & experiences", "Qualifying facility visits, demos and on-site group support."],
-  ["A real EVP connection", "A designated program contact who understands your group."],
+  ["Event support", "Local or remote event support based on location, timing and availability."],
+  ["Co-branded merchandise", "Access to discounted co-branded merchandise created for your members."],
+  ["Member product giveaways", "EVP-managed giveaway opportunities based on group activity and qualifying purchases."],
+  ["A dedicated EVP contact", "A designated program contact who understands your group and helps keep things moving."],
 ];
 
 export default function Home() {
@@ -78,8 +37,8 @@ export default function Home() {
           />
         </a>
         <nav aria-label="Main navigation">
-          <a href="#programs">Program Options</a>
-          <a href="#benefits">Benefits</a>
+          <a href="#programs">The Program</a>
+          <a href="#benefits">Additional Benefits</a>
           <a href="#how-it-works">How It Works</a>
           <a href="/application">Application + Roster</a>
           <a className="checklist-nav-button" href="/project-checklist">Project Checklist</a>
@@ -95,7 +54,7 @@ export default function Home() {
           <p className="kicker">EVP Riding Group Partnership Program</p>
           <h1>More power for<br /><span>your community.</span></h1>
           <p className="hero-copy">
-            Exclusive member benefits, group funding opportunities and official partnership support—built for the people who bring riders together.
+            Exclusive member pricing, annual group rewards and partnership support—built for the people who bring riders together.
           </p>
           <div className="hero-actions">
             <a className="button" href="#interest-form">Let&apos;s Ride! <span>→</span></a>
@@ -114,55 +73,57 @@ export default function Home() {
       <section className="section programs-section" id="programs">
         <div className="section-heading">
           <div>
-            <p className="kicker">Three ways to partner</p>
-            <h2>Choose what moves<br />your group forward.</h2>
+            <p className="kicker">One program. Shared momentum.</p>
+            <h2>More value for every rider—and the group behind them.</h2>
           </div>
           <p>
-            From member value to organizational support and brand collaboration, each option is designed to serve a different group priority.
+            Every approved group joins the same EVP partnership program, creating value for individual members while rewarding the group’s collective activity.
           </p>
         </div>
 
-        <div className="program-grid">
-          {programs.map((program) => (
-            <article className="program-card" key={program.name}>
-              <div className="program-image"><img src={program.image} alt={program.imageAlt} /></div>
-              <div className="program-number">{program.number}</div>
-              <p className="card-eyebrow">{program.eyebrow}</p>
-              <h3>{program.name}</h3>
-              <p className="program-description">{program.description}</p>
-              <ul>
-                {program.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
-              </ul>
-              <p className="best-for">{program.fit}</p>
-            </article>
-          ))}
-        </div>
-        <div className="program-cta">
-          <div>
-            <h3>Not sure which option fits your group?</h3>
-            <p>Tell us about your riders, goals and events—we’ll help identify the best partnership path.</p>
+        <article className="single-program">
+          <div className="single-program-media">
+            <img className="single-program-main-image" src="/images/group-team-4.jpg" alt="EVP team and riders gathered with a UTV at a dune event" />
+            <img src="/images/product-exhaust.jpg" alt="EVP performance exhaust installed on a UTV" />
+            <img src="/images/our-story.jpg" alt="Evolution Powersports team member connecting with riders at an event" />
           </div>
-          <a className="button" href="#interest-form">Find Your Group’s Fit <span>→</span></a>
-        </div>
-        <p className="detail-note">Program specifics are customized after EVP learns more about your group, membership and annual activities.</p>
+          <div className="single-program-content">
+            <p className="card-eyebrow">The EVP Riding Group Partnership</p>
+            <h3>Built to reward the whole group.</h3>
+            <p className="single-program-intro">Members get meaningful EVP value from the start. As qualifying activity grows, the riding group can unlock annual support of its own.</p>
+            <div className="program-pillars">
+              {programPillars.map(([title, copy], index) => (
+                <div className="program-pillar" key={title}>
+                  <span>0{index + 1}</span>
+                  <div><h4>{title}</h4><p>{copy}</p></div>
+                </div>
+              ))}
+            </div>
+            <a className="button" href="#interest-form">Tell Us About Your Group <span>→</span></a>
+            <p className="program-fine-print">Specific rates, thresholds, eligible purchases, renewal terms and program limitations are shared during the formal application process.</p>
+          </div>
+        </article>
       </section>
 
       <section className="benefits-section" id="benefits">
         <div className="benefits-copy">
-          <p className="kicker">Included with every partnership option</p>
-          <h2>Performance support that goes beyond a discount.</h2>
+          <p className="kicker">Additional partnership benefits</p>
+          <h2>More ways EVP can support your group.</h2>
           <p>
-            No matter which option fits your group, every approved partner receives a shared foundation of EVP benefits, expertise and opportunities.
+            Approved groups may also receive access to additional EVP support based on group activity, location, timing and program availability.
           </p>
           <a className="text-link light" href="#interest-form">Tell us about your group <span>→</span></a>
         </div>
-        <div className="benefit-list">
-          {benefits.map(([title, copy], index) => (
-            <div className="benefit-item" key={title}>
-              <span>0{index + 1}</span>
-              <div><h3>{title}</h3><p>{copy}</p></div>
-            </div>
-          ))}
+        <div className="benefits-list-wrap">
+          <div className="benefit-list">
+            {benefits.map(([title, copy], index) => (
+              <div className="benefit-item" key={title}>
+                <span>0{index + 1}</span>
+                <div><h3>{title}</h3><p>{copy}</p></div>
+              </div>
+            ))}
+          </div>
+          <p className="benefits-note">Additional benefits are subject to EVP approval, availability, scheduling and applicable program terms.</p>
         </div>
       </section>
 
@@ -173,7 +134,7 @@ export default function Home() {
         </div>
         <div className="steps">
           <article><span>01</span><h3>Tell us about your group</h3><p>Share your membership, location, events and what matters most to your riders.</p></article>
-          <article><span>02</span><h3>Find the right fit</h3><p>EVP reviews your information and recommends the strongest partnership path.</p></article>
+          <article><span>02</span><h3>Confirm program details</h3><p>EVP reviews your information, confirms eligibility and shares the complete program terms.</p></article>
           <article><span>03</span><h3>Launch together</h3><p>We confirm the details, activate benefits and give your group what it needs to get started.</p></article>
         </div>
       </section>
@@ -183,7 +144,7 @@ export default function Home() {
           <p className="kicker">Let’s ride together</p>
           <h2>Put your group on EVP’s radar.</h2>
           <p>
-            Tell us a little about your riding community. An EVP team member will reach out to learn more and explore the right partnership option.
+            Tell us a little about your riding community. An EVP team member will reach out to learn more and explore whether the program is a strong fit.
           </p>
           <div className="contact-meta">
             <span>What happens next</span>
@@ -234,14 +195,15 @@ export default function Home() {
               </div>
               <label>Primary location<input required name="location" placeholder="City, State" /></label>
               <label>Website or social page <small>(optional)</small><input name="group_url" type="text" inputMode="url" autoCapitalize="none" autoCorrect="off" placeholder="www.yourgroup.com or social profile" /></label>
-              <fieldset className="program-interest">
-                <legend>Which partnership option interests you most?</legend>
-                <p>Your selection isn’t a commitment; it simply helps us start the conversation.</p>
-                <div className="radio-grid">
-                  <label className="radio-option"><input required type="radio" name="program_interest" value="Member Preferred Pricing" /><span>Member Preferred Pricing</span></label>
-                  <label className="radio-option"><input type="radio" name="program_interest" value="Group Growth Fund" /><span>Group Growth Fund</span></label>
-                  <label className="radio-option"><input type="radio" name="program_interest" value="Official EVP Group Partner" /><span>Official EVP Group Partner</span></label>
-                  <label className="radio-option"><input type="radio" name="program_interest" value="Not sure—help us choose" /><span>Not sure—help us choose</span></label>
+              <fieldset className="benefit-interest">
+                <legend>What additional support interests your group? <small>(optional)</small></legend>
+                <p>Select any that would be valuable. Availability is confirmed during program review.</p>
+                <div className="benefit-grid">
+                  {benefits.map(([title]) => (
+                    <label className="benefit-option" key={title}>
+                      <input type="checkbox" name="benefit_interest" value={title} /><span>{title}</span>
+                    </label>
+                  ))}
                 </div>
               </fieldset>
               <label className="consent"><input required type="checkbox" name="consent" /><span>I agree that EVP may contact me about the Riding Group Partnership Program.</span></label>
@@ -255,8 +217,9 @@ export default function Home() {
       <section className="faq-section">
         <div><p className="kicker">Good to know</p><h2>Built to fit the way your group rides.</h2></div>
         <div className="faq-list">
-          <details><summary>Does submitting interest commit our group?</summary><p>No. This starts a conversation so EVP can learn about your group and recommend the right program option.</p></details>
-          <details><summary>Are program rates listed publicly?</summary><p>Program details vary by option and group. Specific benefits, eligibility and terms are shared during the review process.</p></details>
+          <details><summary>Does submitting interest commit our group?</summary><p>No. This starts a conversation so EVP can learn about your group, confirm eligibility and share the complete program details.</p></details>
+          <details><summary>Are program rates listed publicly?</summary><p>No. Specific member savings, group reward rates, qualifying thresholds, eligibility requirements and limitations are shared during the formal application process.</p></details>
+          <details><summary>How are group rewards tracked?</summary><p>Qualifying activity is tracked across each group’s annual program period. Complete calculation, payout and renewal terms are provided with the formal application.</p></details>
           <details><summary>What types of groups can apply?</summary><p>The initial program is designed for organized UTV riding groups with verified, dues-paying members. Additional powersports communities may be added later.</p></details>
         </div>
       </section>

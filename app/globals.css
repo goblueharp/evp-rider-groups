@@ -108,39 +108,38 @@ button, input, select { font: inherit; }
 .section-heading h2, .benefits-copy h2, .center-heading h2, .interest-copy h2, .faq-section h2 { margin: 0; font-size: clamp(44px, 5.1vw, 76px); line-height: .94; font-weight: 900; letter-spacing: -.02em; }
 .section-heading > p { margin: 0 0 6px; color: #5f5f5f; font-size: 17px; line-height: 1.75; }
 
-.program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.program-card { min-height: 675px; padding: 0 34px 30px; position: relative; display: flex; flex-direction: column; overflow: hidden; background: #fff; border-top: 5px solid #292929; box-shadow: 0 12px 34px rgba(0,0,0,.06); }
-.program-image { height: 190px; margin: 0 -34px 28px; overflow: hidden; background: #151515; }
-.program-image img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.9) contrast(1.05); transition: transform .45s ease, filter .45s ease; }
-.program-card:nth-child(1) .program-image img { object-position: 32% center; }
-.program-card:nth-child(2) .program-image img { object-position: 50% center; }
-.program-card:nth-child(3) .program-image img { object-position: 45% center; }
-.program-card:hover .program-image img { transform: scale(1.035); filter: saturate(1.05) contrast(1.05); }
-.program-number { color: #c9c7c3; font: italic 900 52px/1 "Barlow Condensed", sans-serif; }
 .card-eyebrow { margin: 28px 0 8px; color: var(--red); font: 800 14px/1 "Barlow Condensed", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-.program-card h3 { min-height: 66px; margin: 0 0 16px; font-size: 31px; line-height: 1.05; }
-.program-description { margin: 0; color: #666; font-size: 15px; line-height: 1.7; }
-.program-card ul { padding: 23px 0 0; margin: 22px 0; list-style: none; border-top: 1px solid #e5e3df; }
-.program-card li { margin: 11px 0; padding-left: 24px; position: relative; font-size: 14px; font-weight: 600; }
-.program-card li::before { content: "+"; position: absolute; left: 0; color: var(--red); font-weight: 800; }
-.best-for { margin: auto 0 0; padding-top: 19px; border-top: 1px solid #e5e3df; color: #777; font-size: 12px; line-height: 1.55; }
-.detail-note { margin: 32px 0 0; color: #777; text-align: center; font-size: 13px; }
-.program-cta { max-width: 920px; margin: 42px auto 0; padding: 25px 30px; display: flex; align-items: center; justify-content: space-between; gap: 32px; background: #242424; color: #fff; border-left: 5px solid var(--red); }
-.program-cta h3 { margin: 0 0 6px; font-size: 26px; }
-.program-cta p { margin: 0; color: #bdbdbd; font-size: 14px; line-height: 1.55; }
-.program-cta .button { flex: 0 0 auto; }
+.single-program { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); overflow: hidden; border-top: 5px solid #252525; background: #fff; box-shadow: 0 18px 45px rgba(0,0,0,.09); }
+.single-program-media { min-height: 690px; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 2fr 1fr; gap: 5px; background: #191919; }
+.single-program-media img { width: 100%; height: 100%; min-height: 0; display: block; object-fit: cover; filter: saturate(.92) contrast(1.04); }
+.single-program-media .single-program-main-image { grid-column: 1 / -1; object-position: 50% center; }
+.single-program-media img:nth-child(2) { object-position: 35% center; }
+.single-program-media img:nth-child(3) { object-position: 48% center; }
+.single-program-content { padding: clamp(38px, 5vw, 72px); display: flex; align-items: flex-start; flex-direction: column; }
+.single-program-content .card-eyebrow { margin-top: 0; }
+.single-program-content h3 { max-width: 650px; margin: 0; font-size: clamp(45px, 4.7vw, 68px); line-height: .92; letter-spacing: -.02em; }
+.single-program-intro { max-width: 650px; margin: 24px 0 20px; color: #5f5f5f; font-size: 16px; line-height: 1.7; }
+.program-pillars { width: 100%; margin-bottom: 30px; }
+.program-pillar { padding: 20px 0; display: grid; grid-template-columns: 50px 1fr; gap: 18px; border-top: 1px solid #dfdcd7; }
+.program-pillar:last-child { border-bottom: 1px solid #dfdcd7; }
+.program-pillar > span { color: var(--red); font: italic 900 16px "Barlow Condensed", sans-serif; }
+.program-pillar h4 { margin: 0 0 5px; font: 800 21px "Barlow Condensed", sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.program-pillar p { margin: 0; color: #696969; font-size: 13px; line-height: 1.6; }
+.program-fine-print { max-width: 660px; margin: 19px 0 0; color: #888; font-size: 10px; line-height: 1.55; }
 
 .benefits-section { padding: 100px clamp(24px, 8vw, 126px); display: grid; grid-template-columns: .83fr 1.17fr; gap: 9vw; background: #1c1c1c; color: #fff; position: relative; overflow: hidden; }
 .benefits-section::before { content: "EVP"; position: absolute; left: -20px; bottom: -100px; color: rgba(255,255,255,.025); font: italic 900 330px/1 "Barlow Condensed", sans-serif; }
 .benefits-copy { position: relative; z-index: 1; }
 .benefits-copy > p:not(.kicker) { margin: 28px 0; color: #aaa; line-height: 1.75; }
 .text-link.light { color: #fff; }
-.benefit-list { position: relative; z-index: 1; }
+.benefits-list-wrap { position: relative; z-index: 1; }
+.benefit-list { position: relative; }
 .benefit-item { padding: 27px 0; display: grid; grid-template-columns: 60px 1fr; gap: 22px; border-bottom: 1px solid #3b3b3b; }
 .benefit-item:first-child { border-top: 1px solid #3b3b3b; }
 .benefit-item > span { color: var(--red); font: italic 800 16px "Barlow Condensed", sans-serif; }
 .benefit-item h3 { margin: 0 0 5px; font-size: 23px; letter-spacing: .01em; }
 .benefit-item p { margin: 0; color: #a9a9a9; font-size: 14px; line-height: 1.5; }
+.benefits-note { margin: 15px 0 0 82px; color: #777; font-size: 10px; line-height: 1.55; }
 
 .steps-section { background: #fff; }
 .center-heading { max-width: 850px; margin: 0 auto 55px; text-align: center; }
@@ -169,16 +168,17 @@ form label { display: block; margin-bottom: 16px; font-size: 12px; font-weight: 
 form label small { color: #888; font-weight: 400; }
 input, select { width: 100%; height: 48px; margin-top: 7px; padding: 0 13px; border: 1px solid #cfcfcf; border-radius: 0; background: #fafafa; color: var(--black); outline: none; font-size: 14px; }
 input:focus, select:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
-.program-interest { margin: 2px 0 20px; padding: 0; border: 0; }
-.program-interest legend { font-size: 12px; font-weight: 700; }
-.program-interest > p { margin: 5px 0 11px; color: #777; font-size: 11px; line-height: 1.45; }
-.radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-form .radio-option { min-height: 50px; margin: 0; padding: 11px 12px; display: flex; align-items: center; gap: 10px; border: 1px solid #cfcfcf; background: #fafafa; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
-.radio-option:hover { border-color: #999; }
-.radio-option:focus-within { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
-.radio-option:has(input:checked) { border-color: var(--red); background: #fff1f0; }
-.radio-option input { width: 17px; height: 17px; margin: 0; padding: 0; flex: 0 0 auto; accent-color: var(--red); box-shadow: none; }
-.radio-option span { font-size: 12px; line-height: 1.25; }
+.benefit-interest { margin: 2px 0 20px; padding: 0; border: 0; }
+.benefit-interest legend { font-size: 12px; font-weight: 700; }
+.benefit-interest legend small { color: #888; font-weight: 400; }
+.benefit-interest > p { margin: 5px 0 11px; color: #777; font-size: 11px; line-height: 1.45; }
+.benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+form .benefit-option { min-height: 50px; margin: 0; padding: 11px 12px; display: flex; align-items: center; gap: 10px; border: 1px solid #cfcfcf; background: #fafafa; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.benefit-option:hover { border-color: #999; }
+.benefit-option:focus-within { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
+.benefit-option:has(input:checked) { border-color: var(--red); background: #fff1f0; }
+.benefit-option input { width: 17px; height: 17px; margin: 0; padding: 0; flex: 0 0 auto; accent-color: var(--red); box-shadow: none; }
+.benefit-option span { font-size: 12px; line-height: 1.25; }
 .consent { margin: 5px 0 22px; display: flex; align-items: flex-start; gap: 10px; color: #555; line-height: 1.5; }
 .consent input { width: 16px; height: 16px; margin: 2px 0 0; accent-color: var(--red); }
 .submit-button { width: 100%; }
@@ -224,7 +224,7 @@ footer > div { display: flex; justify-content: flex-end; gap: 22px; }
 .application-form-heading span { font: 900 29px "Barlow Condensed", sans-serif; text-transform: uppercase; }
 .application-form-heading small { color: #888; font-size: 10px; }
 .application-form-heading em { padding: 6px 10px; background: #f1efeb; color: #666; font: normal 800 11px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
-.application-progress { margin: 29px 0 42px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.application-progress { margin: 29px 0 42px; display: grid; grid-template-columns: repeat(4, 1fr); }
 .application-progress > button { min-width: 0; padding: 0; position: relative; display: flex; align-items: center; gap: 10px; border: 0; background: none; color: #999; text-align: left; cursor: pointer; }
 .application-progress > button::after { content: ""; height: 2px; position: absolute; left: 39px; right: 8px; top: 16px; background: #ddd; }
 .application-progress > button:last-child::after { display: none; }
@@ -243,12 +243,26 @@ footer > div { display: flex; justify-content: flex-end; gap: 22px; }
 .application-step textarea:focus { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
 .application-fieldset { margin: 0 0 25px; padding: 0; border: 0; }
 .application-fieldset legend { margin-bottom: 11px; font-size: 12px; font-weight: 700; }
+.application-fieldset legend small { color: #888; font-weight: 400; }
 .application-choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .application-choice-grid label { min-height: 53px; margin: 0; padding: 11px 12px; display: flex; align-items: center; gap: 10px; border: 1px solid #cfcfcf; background: #fafafa; cursor: pointer; }
 .application-choice-grid label:has(input:checked) { border-color: var(--red); background: #fff1f0; }
 .application-choice-grid input { width: 17px; height: 17px; margin: 0; padding: 0; flex: 0 0 auto; accent-color: var(--red); }
 .application-choice-grid span { font-size: 12px; }
 .application-choice-grid b { margin-right: 6px; color: var(--red); font: italic 900 12px "Barlow Condensed", sans-serif; }
+.program-terms-card { margin: 0 0 28px; padding: 23px; border-top: 4px solid var(--red); background: #202020; color: #fff; }
+.program-terms-heading { padding-bottom: 18px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; border-bottom: 1px solid #414141; }
+.program-terms-heading .step-eyebrow { margin-bottom: 5px; }
+.program-terms-heading h3 { max-width: 520px; margin: 0; font-size: 27px; line-height: 1; }
+.program-terms-heading > span { flex: 0 0 auto; padding: 6px 9px; background: var(--red); font: 800 10px "Barlow Condensed", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.program-terms-grid { margin: 20px 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.program-terms-grid > div { padding: 0 16px; display: flex; flex-direction: column; border-right: 1px solid #454545; }
+.program-terms-grid > div:first-child { padding-left: 0; }
+.program-terms-grid > div:last-child { padding-right: 0; border-right: 0; }
+.program-terms-grid strong { color: #fff; font: 900 21px "Barlow Condensed", sans-serif; text-transform: uppercase; }
+.program-terms-grid span { margin-top: 4px; color: #aaa; font-size: 10px; line-height: 1.45; }
+.program-terms-card > p { margin: 0; color: #999; font-size: 10px; line-height: 1.55; }
+form .program-acknowledgement { margin: -5px 0 25px; padding: 13px 14px; border-left: 3px solid var(--red); background: #f4f2ee; }
 .template-download-card { margin: 0 0 22px; padding: 17px; display: grid; grid-template-columns: 52px 1fr auto; align-items: center; gap: 15px; border: 1px solid #ddd; background: #f7f6f3; }
 .template-file-icon { width: 52px; height: 52px; display: grid; place-items: center; background: #202020; color: #fff; font: 900 13px "Barlow Condensed", sans-serif; }
 .template-download-card strong { font-size: 14px; }
@@ -352,9 +366,10 @@ form .application-consent { margin-bottom: 12px; }
   .brand img { width: 250px; }
   .hero-content { width: 62vw; }
   .section-heading { grid-template-columns: 1fr; gap: 25px; }
-  .program-grid { grid-template-columns: 1fr; }
-  .program-card { min-height: 0; }
+  .single-program { grid-template-columns: 1fr; }
+  .single-program-media { min-height: 540px; }
   .benefits-section, .interest-section, .faq-section { grid-template-columns: 1fr; gap: 60px; }
+  .benefits-note { margin-left: 82px; }
   .steps article { padding-inline: 25px; }
   footer { grid-template-columns: 1fr; text-align: center; }
   footer img { margin: auto; }
@@ -385,10 +400,12 @@ form .application-consent { margin-bottom: 12px; }
   .proof-divider { width: 100%; height: 1px; }
   .section, .benefits-section, .interest-section, .faq-section { padding: 75px 22px; }
   .section-heading h2, .benefits-copy h2, .center-heading h2, .interest-copy h2, .faq-section h2 { font-size: 45px; }
-  .program-card { min-height: 0; padding: 0 25px 30px; }
-  .program-image { margin: 0 -25px 26px; }
-  .program-cta { padding: 24px 20px; align-items: flex-start; flex-direction: column; }
-  .radio-grid { grid-template-columns: 1fr; }
+  .single-program-media { min-height: 420px; grid-template-rows: 1.6fr 1fr; }
+  .single-program-content { padding: 35px 24px; }
+  .single-program-content h3 { font-size: 44px; }
+  .program-pillar { grid-template-columns: 38px 1fr; gap: 10px; }
+  .benefits-note { margin-left: 0; }
+  .benefit-grid { grid-template-columns: 1fr; }
   .application-header-label { display: none; }
   .application-back { font-size: 13px; }
   .application-layout { padding: 25px 16px 45px; gap: 20px; }
@@ -400,6 +417,10 @@ form .application-consent { margin-bottom: 12px; }
   .application-progress p { display: none; }
   .application-progress > button::after { left: 32px; right: 0; }
   .application-choice-grid { grid-template-columns: 1fr; }
+  .program-terms-heading { flex-direction: column; }
+  .program-terms-grid { grid-template-columns: 1fr; gap: 13px; }
+  .program-terms-grid > div, .program-terms-grid > div:first-child, .program-terms-grid > div:last-child { padding: 0 0 13px; border-right: 0; border-bottom: 1px solid #454545; }
+  .program-terms-grid > div:last-child { padding-bottom: 0; border-bottom: 0; }
   .template-download-card { grid-template-columns: 45px 1fr; }
   .template-file-icon { width: 45px; height: 45px; }
   .template-download-card a { grid-column: 1 / -1; }
