@@ -120,10 +120,10 @@ button, input, select { font: inherit; }
 .single-program-content h3 { max-width: 650px; margin: 0; font-size: clamp(45px, 4.7vw, 68px); line-height: .92; letter-spacing: -.02em; }
 .single-program-intro { max-width: 650px; margin: 24px 0 20px; color: #5f5f5f; font-size: 16px; line-height: 1.7; }
 .program-pillars { width: 100%; margin-bottom: 30px; }
-.program-pillar { padding: 20px 0; display: grid; grid-template-columns: 50px 1fr; gap: 18px; border-top: 1px solid #dfdcd7; }
+.program-pillar { padding: 24px 0; display: grid; grid-template-columns: 78px 1fr; align-items: start; gap: 20px; border-top: 1px solid #dfdcd7; }
 .program-pillar:last-child { border-bottom: 1px solid #dfdcd7; }
-.program-pillar > span { color: var(--red); font: italic 900 16px "Barlow Condensed", sans-serif; }
-.program-pillar h4 { margin: 0 0 5px; font: 800 21px "Barlow Condensed", sans-serif; letter-spacing: .02em; text-transform: uppercase; }
+.program-pillar > span { color: var(--red); font: italic 900 42px/.9 "Barlow Condensed", sans-serif; letter-spacing: -.03em; }
+.program-pillar h4 { margin: 0 0 6px; font: 800 26px/1 "Barlow Condensed", sans-serif; letter-spacing: .01em; text-transform: uppercase; }
 .program-pillar p { margin: 0; color: #696969; font-size: 13px; line-height: 1.6; }
 .program-fine-print { max-width: 660px; margin: 19px 0 0; color: #888; font-size: 10px; line-height: 1.55; }
 
@@ -403,7 +403,9 @@ form .application-consent { margin-bottom: 12px; }
   .single-program-media { min-height: 420px; grid-template-rows: 1.6fr 1fr; }
   .single-program-content { padding: 35px 24px; }
   .single-program-content h3 { font-size: 44px; }
-  .program-pillar { grid-template-columns: 38px 1fr; gap: 10px; }
+  .program-pillar { grid-template-columns: 55px 1fr; gap: 12px; }
+  .program-pillar > span { font-size: 31px; }
+  .program-pillar h4 { font-size: 22px; }
   .benefits-note { margin-left: 0; }
   .benefit-grid { grid-template-columns: 1fr; }
   .application-header-label { display: none; }
