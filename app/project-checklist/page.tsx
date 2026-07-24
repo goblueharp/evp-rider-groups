@@ -10,9 +10,7 @@ type Deliverable = {
   done: boolean;
 };
 
-type Filter = "open" | "done" | "all";
-
-const STORAGE_KEY = "evp-riding-group-project-deliverables-v2";
+const STORAGE_KEY = "evp-riding-group-project-deliverables-v3";
 const ownerOptions = ["Unassigned", "Dustin", "John G", "Todd H"];
 
 const seededDeliverables: Deliverable[] = [
@@ -45,9 +43,23 @@ const seededDeliverables: Deliverable[] = [
     done: false,
   },
   {
-    id: "website",
-    title: "Launch the Webpage and Connect HubSpot",
-    description: "Launch the partnership webpage, build the form in HubSpot and confirm that submissions, routing and follow-up are connected and working correctly.",
+    id: "hubspot-form",
+    title: "Build the HubSpot Form and Update the Netlify Draft",
+    description: "Build the form in HubSpot, then update the Netlify development version with the approved design and copy.",
+    owner: "Unassigned",
+    done: false,
+  },
+  {
+    id: "shopify-page",
+    title: "Build the Draft Shopify Page and Connect HubSpot",
+    description: "Port or rebuild the draft page in Shopify and connect the HubSpot form so submissions are captured correctly.",
+    owner: "Unassigned",
+    done: false,
+  },
+  {
+    id: "lead-routing",
+    title: "Confirm Lead Routing and Automation with Todd",
+    description: "Confirm lead assignment with Todd, then create a new HubSpot automation—or update the existing automation—so leads are routed correctly.",
     owner: "Unassigned",
     done: false,
   },
@@ -69,7 +81,6 @@ const seededDeliverables: Deliverable[] = [
 
 export default function ProjectChecklistPage() {
   const [items, setItems] = useState<Deliverable[]>(seededDeliverables);
-  const [filter, setFilter] = useState<Filter>("open");
   const [ready, setReady] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -97,11 +108,8 @@ export default function ProjectChecklistPage() {
     all: items.length,
   }), [items]);
 
-  const visibleItems = useMemo(() => items.filter((item) => {
-    if (filter === "open") return !item.done;
-    if (filter === "done") return item.done;
-    return true;
-  }), [filter, items]);
+  const openItems = useMemo(() => items.filter((item) => !item.done), [items]);
+  const doneItems = useMemo(() => items.filter((item) => item.done), [items]);
 
   function submitDeliverable(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -114,7 +122,6 @@ export default function ProjectChecklistPage() {
       owner,
       done: false,
     }]);
-    setFilter("open");
     setTitle("");
     setDescription("");
     setOwner("Unassigned");
@@ -138,9 +145,9 @@ export default function ProjectChecklistPage() {
     setItems((current) => current.map((item) => item.id === id ? { ...item, [field]: cleanedValue } : item));
   }
 
-  function moveDeliverable(id: string, direction: -1 | 1) {
-    const currentVisibleIndex = visibleItems.findIndex((item) => item.id === id);
-    const targetItem = visibleItems[currentVisibleIndex + direction];
+  function moveDeliverable(id: string, direction: -1 | 1, sectionItems: Deliverable[]) {
+    const currentVisibleIndex = sectionItems.findIndex((item) => item.id === id);
+    const targetItem = sectionItems[currentVisibleIndex + direction];
     if (!targetItem) return;
 
     setItems((current) => {
@@ -150,6 +157,26 @@ export default function ProjectChecklistPage() {
       [next[fromIndex], next[toIndex]] = [next[toIndex], next[fromIndex]];
       return next;
     });
+  }
+
+  function renderDeliverable(item: Deliverable, index: number, sectionItems: Deliverable[], rankOffset = 0) {
+    return (
+      <article className={`deliverable-card${item.done ? " is-done" : ""}`} key={item.id}>
+        <div className="deliverable-rank"><span>Rank</span><strong>{String(rankOffset + index + 1).padStart(2, "0")}</strong></div>
+        <div className="deliverable-content">
+          <label className="deliverable-check"><input type="checkbox" checked={item.done} onChange={() => toggleDeliverable(item.id)} /><span>{item.done ? "Completed" : "Mark done"}</span></label>
+          <h3 contentEditable suppressContentEditableWarning role="textbox" aria-label={`Edit title: ${item.title}`} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); event.currentTarget.blur(); } }} onBlur={(event) => updateText(item.id, "title", event.currentTarget.innerText, event.currentTarget)}>{item.title}</h3>
+          <p contentEditable suppressContentEditableWarning role="textbox" aria-multiline="true" aria-label={`Edit description: ${item.title}`} onBlur={(event) => updateText(item.id, "description", event.currentTarget.innerText, event.currentTarget)}>{item.description}</p>
+          <label className="deliverable-owner"><span>Owner</span><select value={ownerOptions.includes(item.owner) ? item.owner : "Unassigned"} onChange={(event) => updateOwner(item.id, event.target.value)}>{ownerOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
+        </div>
+        <div className="deliverable-actions">
+          <div className="rank-actions" aria-label={`Reorder ${item.title}`}>
+            <button type="button" onClick={() => moveDeliverable(item.id, -1, sectionItems)} disabled={index === 0} aria-label="Move up">↑</button>
+            <button type="button" onClick={() => moveDeliverable(item.id, 1, sectionItems)} disabled={index === sectionItems.length - 1} aria-label="Move down">↓</button>
+          </div>
+        </div>
+      </article>
+    );
   }
 
   return (
@@ -195,40 +222,29 @@ export default function ProjectChecklistPage() {
           <div className="deliverables-toolbar">
             <div>
               <p className="kicker">Working list</p>
-              <h2>{filter === "open" ? "Open deliverables" : filter === "done" ? "Completed deliverables" : "All deliverables"}</h2>
+              <h2>Open deliverables</h2>
               <small>Click any title or description to edit · changes save automatically</small>
-            </div>
-            <div className="checklist-filters" aria-label="Filter deliverables">
-              {(["open", "done", "all"] as Filter[]).map((option) => (
-                <button className={filter === option ? "active" : ""} type="button" onClick={() => setFilter(option)} key={option}>
-                  {option === "open" ? "Open" : option === "done" ? "Done" : "All"} <span>{counts[option]}</span>
-                </button>
-              ))}
             </div>
           </div>
 
           <div className="deliverables-list">
-            {visibleItems.length === 0 ? (
-              <div className="deliverables-empty"><h3>Nothing here yet.</h3><p>Change the filter or add a new deliverable.</p></div>
-            ) : visibleItems.map((item, index) => (
-              <article className={`deliverable-card${item.done ? " is-done" : ""}`} key={item.id}>
-                <div className="deliverable-rank"><span>Rank</span><strong>{String(items.findIndex((candidate) => candidate.id === item.id) + 1).padStart(2, "0")}</strong></div>
-                <div className="deliverable-content">
-                  <label className="deliverable-check"><input type="checkbox" checked={item.done} onChange={() => toggleDeliverable(item.id)} /><span>{item.done ? "Completed" : "Mark done"}</span></label>
-                  <h3 contentEditable suppressContentEditableWarning role="textbox" aria-label={`Edit title: ${item.title}`} onKeyDown={(event) => { if (event.key === "Enter") { event.preventDefault(); event.currentTarget.blur(); } }} onBlur={(event) => updateText(item.id, "title", event.currentTarget.innerText, event.currentTarget)}>{item.title}</h3>
-                  <p contentEditable suppressContentEditableWarning role="textbox" aria-multiline="true" aria-label={`Edit description: ${item.title}`} onBlur={(event) => updateText(item.id, "description", event.currentTarget.innerText, event.currentTarget)}>{item.description}</p>
-                  <label className="deliverable-owner"><span>Owner</span><select value={ownerOptions.includes(item.owner) ? item.owner : "Unassigned"} onChange={(event) => updateOwner(item.id, event.target.value)}>{ownerOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
-                </div>
-                <div className="deliverable-actions">
-                  <div className="rank-actions" aria-label={`Reorder ${item.title}`}>
-                    <button type="button" onClick={() => moveDeliverable(item.id, -1)} disabled={index === 0} aria-label="Move up">↑</button>
-                    <button type="button" onClick={() => moveDeliverable(item.id, 1)} disabled={index === visibleItems.length - 1} aria-label="Move down">↓</button>
-                  </div>
-                </div>
-              </article>
-            ))}
+            {openItems.length === 0
+              ? <div className="deliverables-empty"><h3>All caught up.</h3><p>Completed deliverables are listed below.</p></div>
+              : openItems.map((item, index) => renderDeliverable(item, index, openItems))}
           </div>
-        </div>
+
+          <section className="completed-deliverables-section" aria-labelledby="completed-deliverables-heading">
+            <div className="completed-deliverables-heading">
+              <h2 id="completed-deliverables-heading">Completed deliverables</h2>
+              <span>{counts.done} Done</span>
+            </div>
+            <div className="deliverables-list">
+              {doneItems.length === 0
+                ? <div className="deliverables-empty completed-empty"><h3>Nothing completed yet.</h3><p>Finished work will move here automatically.</p></div>
+                : doneItems.map((item, index) => renderDeliverable(item, index, doneItems, openItems.length))}
+            </div>
+          </section>
+          </div>
       </section>
     </main>
   );

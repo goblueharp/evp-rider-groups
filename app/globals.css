@@ -307,14 +307,9 @@ form .application-consent { margin-bottom: 12px; }
 .deliverables-panel { min-width: 0; }
 .deliverables-toolbar { margin-bottom: 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 25px; }
 .deliverables-toolbar small { display: block; margin-top: 8px; color: #777; font-size: 10px; }
-.checklist-filters { display: flex; border: 1px solid #cbc8c2; background: #fff; }
-.checklist-filters button { padding: 11px 15px; border: 0; border-right: 1px solid #ddd9d2; background: #fff; color: #666; cursor: pointer; font: 800 12px "Barlow Condensed", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
-.checklist-filters button:last-child { border-right: 0; }
-.checklist-filters button.active { background: #202020; color: #fff; }
-.checklist-filters span { margin-left: 5px; color: var(--red); }
 .deliverables-list { display: grid; gap: 14px; }
 .deliverable-card { padding: 25px; display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; gap: 22px; border-top: 4px solid #252525; background: #fff; box-shadow: 0 12px 25px rgba(0,0,0,.06); }
-.deliverable-card.is-done { border-top-color: #9a9a9a; background: #f7f7f7; }
+.deliverable-card.is-done { border-top-color: #2f9e44; background: #f1f7f2; box-shadow: 0 10px 22px rgba(34,91,45,.07); }
 .deliverable-rank { display: flex; flex-direction: column; align-items: center; }
 .deliverable-rank span { color: #999; font: 700 9px "Barlow Condensed", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .deliverable-rank strong { color: #c9c7c3; font: italic 900 38px "Barlow Condensed", sans-serif; }
@@ -331,8 +326,17 @@ form .application-consent { margin-bottom: 12px; }
 .deliverable-owner span { padding: 0 12px; display: grid; place-items: center; background: #202020; color: #fff; font: 800 11px "Barlow Condensed", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .deliverable-owner select { width: auto; min-width: 165px; height: 40px; margin: 0; padding: 0 38px 0 13px; appearance: none; border: 0; border-radius: 0; background: #f4f1ec; color: #202020; outline: none; font-size: 12px; font-weight: 800; cursor: pointer; }
 .deliverable-owner:focus-within { border-color: var(--red); box-shadow: 0 0 0 2px rgba(211,33,25,.12); }
-.deliverable-card.is-done h3 { color: #777; text-decoration: line-through; }
-.deliverable-card.is-done .deliverable-content > p { color: #999; }
+.deliverable-card.is-done { opacity: .78; }
+.deliverable-card.is-done .deliverable-check { color: #287d3a; }
+.deliverable-card.is-done .deliverable-check input { accent-color: #2f9e44; }
+.deliverable-card.is-done h3 { color: #526157; text-decoration: line-through; }
+.deliverable-card.is-done .deliverable-content > p { color: #7b857e; }
+.deliverable-card.is-done .deliverable-owner span { background: #526157; }
+.completed-deliverables-section { margin-top: 52px; padding-top: 30px; border-top: 1px solid #cbc8c2; }
+.completed-deliverables-heading { margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.completed-deliverables-heading h2 { margin: 0; color: #526157; font-size: 32px; }
+.completed-deliverables-heading > span { padding: 7px 11px; background: #dcebdd; color: #287d3a; font: 800 11px "Barlow Condensed", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.completed-empty { background: rgba(255,255,255,.45); color: #777; }
 .deliverable-actions { display: flex; flex-direction: column; align-items: stretch; gap: 6px; }
 .rank-actions button { padding: 7px 10px; border: 1px solid #d5d2cc; background: #fff; color: #555; cursor: pointer; font-size: 10px; font-weight: 700; text-transform: uppercase; }
 .rank-actions button:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
@@ -420,8 +424,6 @@ form .application-consent { margin-bottom: 12px; }
   .checklist-workspace { padding: 30px 16px 65px; }
   .deliverable-form { padding: 24px 20px; }
   .deliverables-toolbar { align-items: flex-start; flex-direction: column; }
-  .checklist-filters { width: 100%; }
-  .checklist-filters button { flex: 1; }
   .deliverable-card { padding: 20px 17px; grid-template-columns: 42px minmax(0, 1fr); gap: 14px; }
   .deliverable-rank strong { font-size: 30px; }
   .deliverable-content h3 { font-size: 22px; }
